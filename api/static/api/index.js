@@ -21,23 +21,29 @@ window.addEventListener("load", () => {
                 var tr = document.createElement('tr');
                 tr.id  = i;
                 
+                // adding columns to the row
+                // # column
                 var th = document.createElement('th');
                 th.setAttribute("scope", "row");
                 th.innerHTML = data[i].id;
                 tr.appendChild(th);
 
+                // Book column
                 var td1 = document.createElement('td');
                 td1.innerHTML = data[i].name;
                 tr.appendChild(td1);
 
+                // Author column
                 var td2 = document.createElement('td');
                 td2.innerHTML = data[i].author;
                 tr.appendChild(td2);
 
+                // Publishment year column
                 var td3 = document.createElement('td');
                 td3.innerHTML = data[i].year;
                 tr.appendChild(td3);
 
+                // Operations column
                 var td4 = document.createElement('td');
 
                 // Edit button
@@ -76,8 +82,11 @@ window.addEventListener("load", () => {
 })
 
 function delete_data (id) {
-    const xhr =new XMLHttpRequest();
+    // instantiating xhr object
+    const xhr = new XMLHttpRequest();
     xhr.open('DELETE', `/book/${id}`, true);
+    
+    // reloading current page if the request is completed successfully
     xhr.onload = function() {
         console.log(this.status);
         if (this.status == 204) {
@@ -89,10 +98,12 @@ function delete_data (id) {
         }
     }
 
+    // sending the request
     xhr.send();
 
 }
 
 function edit_data (id) {
+    // redirecting to the page of each book for edit
     window.location.href = `edit/${id}`
 }
