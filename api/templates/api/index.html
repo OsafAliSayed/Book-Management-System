@@ -1,0 +1,46 @@
+{% extends 'api/layout.html' %}
+{% load static %}
+
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<!-- table -->
+<div class="row">
+    <div class="col text-center">
+        <h1>Book Management System</h1>
+    </div>
+</div>
+
+<div class="row mt-4 mb-4">
+    <div class="col d-flex justify-content-center">
+        <a href="{% url 'create' %}" class="btn btn-dark">Create new Entry</a>
+    </div>
+</div>
+
+<div class="row p-5">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book</th>
+            <th scope="col">Author</th>
+            <th scope="col">publication date</th>
+            <th scope="col">Operations</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- table dynamic data will go here -->
+        </tbody>
+      </table>
+</div>
+
+<!-- buttons -->
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'api/index.js' %}"></script>
+{% endblock %}

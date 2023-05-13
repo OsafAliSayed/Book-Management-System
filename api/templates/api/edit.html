@@ -1,0 +1,33 @@
+{% extends 'api/layout.html' %}
+{% load static %}
+
+{% block body %}
+<!-- heading  -->
+<div class="row mt-3">
+    <div class="col">
+        <h2 class="text-center">Edit Details</h2>
+    </div>
+</div>
+
+<!-- listing form -->
+<div class="row mt-4 px-5 d-flex justify-content-center text-center">
+    <div class="col-5">
+        <form action="/" id="{{book.id}}" class="editForm">
+            <div class="form-group mt-3">
+                <input autofocus min="3" max="100" class="form-control" type="text" id="title" name="title" placeholder="title of the book" value="{{book.name}}">
+            </div>
+            <div class="form-group mt-3">
+                <input autofocus min="3" max="100" class="form-control" type="text" id="author" name="author" placeholder="Author of the book" value="{{book.author}}">
+            </div>
+            <div class="form-group mt-3">
+                <input autofocus min="3" max="100" class="form-control" type="text" id= "publishment" name="publishment" placeholder="Year of publishment(YYYY-MM-DD)" value="{{book.year|date:"Y-m-d"}}">
+            </div>
+            <input class="btn btn-primary mt-3" type="submit" value="Save Changes">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'api/edit.js' %}"></script>
+{% endblock %}
